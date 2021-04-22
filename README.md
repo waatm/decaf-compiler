@@ -17,7 +17,17 @@ To execute the Mips program, make sure the Spim simulator is available. Use `spi
 ## Implementations
 ### Lexical and Syntax Analysis
 In project 1 and 2, the compiler used Flex and Bison to handle lexical and syntax analysis and built an abstract syntax tree (AST) as output.
+
+Specifically, in project 1 the compiler used regular expressions to recognize different token types and in project 2, types for all the terminals and non-terminals and the production rules based on the context free grammars for decaf language were defined.
 ### Semantic Abalysis
-In project 3, the compiler performs semantic analysis to conduct scope checking and type checking. The program will print out appropriate error messages for the violations. 
+In project 3, the compiler performed semantic analysis to conduct scope checking and type checking. The program would print out appropriate error messages for the violations.
+
+A polymorphic `Check()` method was built in the AST classes. The semantic analyzer would do an in-order walk of the tree, visiting and checking each node.
+
 ### Code Generation
-Once all error checking is done, the compiler generates three-address code (TAC) as intermediate representation (IR), and emits MIPS assembly code. The MIPS assembly code can be executed with the SPIM simulator.
+In project 4, the compiler would traverse the AST agian and use another polymorphic function `Emit()` to generate three-address code (TAC) as intermediate representation (IR), and move forward to emit MIPS assembly code.
+
+### Register Allocation and Optimization
+In the final project, the goal was to improve the back end and optimize the codes the compiler generated. Note that in project 4, only 2 of 18 available general purpose registers were used in the provided source code. In project 5, there was another pass in the compiler to perform dataflow analysis, specifically live variable analysis to help improve the register allocation scheme.
+
+The compiler would traverse the generated TAC code, construct the control flow graph (CFG) in each function and compute the live variables at each program point. The compiler would then take as input the IN, OUT and KILL set generated in the previous step, build the interference graph and apply *Chaitin’s k-coloring algorithm* on the graph. Hence, each TAC instruction would be either assigned a register or spilled into memory.
