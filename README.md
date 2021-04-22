@@ -11,8 +11,11 @@ make clean
 make
 ```
 The executable takes as input `stdin` and outputs to `stdout`. You may want to specifiy paths to input and output file.
+
 `./dcc < ./samples/t8.decaf > test.s`
-To execute the Mips program, make sure the Spim simulator is available. Use `spim` to launch it .
+
+To execute the Mips program, make sure the Spim simulator is available. Use `spim` to launch it.
+
 `spim -f test.s`
 ## Implementations
 ### Lexical and Syntax Analysis
