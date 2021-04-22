@@ -1,6 +1,6 @@
-# Decaf-to-Mips-Compiler
+# Decaf-to-MIPS-Compiler
 ## Introduction
-This is a Decaf compiler project in C/C++. Decaf is a strongly-typed, object-oriented language with support for inheritance and encapsulation. By design, it keeps many features in C/C++, but still way simpler. The target language is Mips assembly language.
+This is a Decaf compiler project in C/C++. Decaf is a strongly-typed, object-oriented language with support for inheritance and encapsulation. By design, it keeps many features in C/C++, but still way simpler. The target language is MIPS assembly language.
 
 This project is an aggregation of work in a series of 5 sub projects. Sources codes, projects specs and instructions were provided in the EECS483 course.
 ## Usage
@@ -22,7 +22,7 @@ To execute the Mips program, make sure the Spim simulator is available. Use `spi
 In project 1 and 2, the compiler used Flex and Bison to handle lexical and syntax analysis and built an abstract syntax tree (AST) as output.
 
 Specifically, in project 1 the compiler used regular expressions to recognize different token types and in project 2, types for all the terminals and non-terminals and the production rules based on the context free grammars for decaf language were defined.
-### Semantic Abalysis
+### Semantic Analysis
 In project 3, the compiler performed semantic analysis to conduct scope checking and type checking. The program would print out appropriate error messages for the violations.
 
 A polymorphic `Check()` method was built in the AST classes. The semantic analyzer would do an in-order walk of the tree, visiting and checking each node.
